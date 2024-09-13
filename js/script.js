@@ -29,9 +29,9 @@ document.getElementById('btn-post').addEventListener('click', function() {
 
     disableButton(button); // Desativa o botão
 
-    fetch('http://localhost/api/sheet', {
+    fetch('https://472e-201-22-100-109.ngrok-free.app/api/sheet', {
         method: 'POST',
-        headers: {
+        headers: { 'ngrok-skip-browser-warning':undefined,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -81,7 +81,9 @@ document.getElementById('btn-post').addEventListener('click', function() {
 // Função para buscar todos os personagens e exibi-los
 async function getAllAndPlot() {
     try {
-        const response = await fetch('http://localhost/api/sheet');
+        const response = await fetch('https://472e-201-22-100-109.ngrok-free.app/api/sheet',{headers:{
+         'ngrok-skip-browser-warning':undefined   
+        }});
         const data = await response.json();
         
         const container = document.getElementById('all-characters');
